@@ -5,10 +5,10 @@ FROM alpine:latest
 RUN apk --no-cache add curl
 
 # Copy the bash script into the container
-COPY pull_metrics.sh /pull_metrics.sh
+COPY node_metric_collector.sh /node_metric_collector.sh
 
 # Make the script executable
-RUN chmod +x /pull_metrics.sh
+RUN chmod +x /node_metric_collector.sh
 
 # Run the script when the container starts
-CMD ["/pull_metrics.sh"]
+CMD ["sh", "/node_metric_collector.sh"]

@@ -1,15 +1,23 @@
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: node-metrics-cronjob
+  namespace: monitoring
 spec:
-  schedule: "*/1 * * * *" # Run every minute
+  schedule: "*/1 * * * *"
   jobTemplate:
     spec:
       template:
         spec:
           containers:
           - name: node-metrics
-            image: <your-docker-image>
-            imagePullPolicy: IfNotPresent # Or use "Always" as per your need
+            image: shanukumarm/node-metric-collector:0.0.2
+            imagePullPolicy: IfNotPresent
+            volumeMounts:
+              - name: metrics-volume
+                mountPath: /metrics
           restartPolicy: OnFailure
+          volumes:
+            - name: metrics-volume
+              persistentVolumeClaim:
+                claimName: metrics-pvc
