@@ -17,7 +17,7 @@ This repository contains resources and instructions for collecting node metrics 
       1. Apply the configuration using `kubectl apply -k node-metric-collector/.`.
   ####  b. Using Helm
       To deploy the cronjob with persistent volume (PV) and persistent volume claim (PVC) using Helm, follow these steps:
-      1. Install Helm on your machine from https://helm.sh/docs/intro/install/.
+      1. Install Helm on your machine from [GitHub Pages](https://helm.sh/docs/intro/install/).
       2. Install the Helm chart with the desired configuration values.
         `helm install node-metric-collector-helm node-metric-collector-helm/.`
     
