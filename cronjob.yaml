@@ -11,7 +11,7 @@ spec:
         spec:
           containers:
           - name: node-metrics
-            image: shanukumarm/node-metric-collector:0.0.2
+            image: shanukumarm/node-metric-collector:0.0.4
             imagePullPolicy: IfNotPresent
             volumeMounts:
               - name: metrics-volume

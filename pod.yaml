@@ -6,7 +6,8 @@ metadata:
 spec:
   containers:
     - name: node-metrics
-      image: shanukumarm/node-metric-collector:0.0.1
+      image: shanukumarm/node-metric-collector:0.0.4
+      command: ["sleep", "50"]
       volumeMounts:
         - name: metrics-volume
           mountPath: /metrics
