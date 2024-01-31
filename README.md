@@ -22,7 +22,7 @@ This repository contains resources and instructions for collecting node metrics 
       To deploy the cronjob with persistent volume (PV) and persistent volume claim (PVC) using Helm, follow these steps:
       1. Install Helm if not already installed on your cluster.
       2. Install the Helm chart with the desired configuration values.
-        `helm install <release_name> <chart_name>`
+        `helm install node-metric-collector-helm node-metric-collector-helm/.`
     
 ## Usage
   Once deployed, the cronjob will collect node metrics at the specified schedule and store them in the persistent volume.
@@ -33,22 +33,3 @@ This repository contains resources and instructions for collecting node metrics 
   ### Customization
     - Modify the schedule and storage size as needed in the 'kustomize' file or Helm chart values.
     - Customize the metric collection script (`node-metric-collector.sh`) according to specific requirements.
-
-
-
-
-
-    
-
-
-
-
-## Retention on Pod Restarts:
-  - Metrics files will be retained within the container filesystem unless explicitly removed.
-
-## Cleanup:
-  - To delete the cron job: kubectl delete cronjob node-metrics-cronjob
-
-## Additional Notes:
-  - Ensure proper RBAC permissions for the cron job to access Node Exporter.
-  - Test thoroughly in a development environment before deploying to production.
