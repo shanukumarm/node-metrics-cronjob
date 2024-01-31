@@ -14,4 +14,4 @@ spec:
   volumes:
     - name: metrics-volume
       persistentVolumeClaim:
-        claimName: metrics-pvc
+        claimName: node-metric-collector-metrics-pvc
